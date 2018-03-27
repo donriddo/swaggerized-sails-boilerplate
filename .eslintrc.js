@@ -10,6 +10,7 @@ module.exports = {
   },
   "globals": {
     "_": true,
+    "__dirname": true,
     "after": true,
     "before": true,
     "global": true,

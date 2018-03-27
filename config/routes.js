@@ -62,6 +62,14 @@ module.exports.routes = {
   'POST /login': {
     action: 'login',
     controller: 'AuthController'
+  },
+
+  /**
+   * thumbnail routes
+   */
+  'POST /thumbnail': {
+    action: 'generateThumbnail',
+    controller: 'ThumbnailController'
   }
 
 };
