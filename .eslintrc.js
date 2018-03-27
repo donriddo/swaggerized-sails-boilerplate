@@ -16,7 +16,8 @@ module.exports = {
     "module": true,
     "require": true,
     "sails": true,
-    "process": true
+    "process": true,
+    "JwtService": true
   },
   "rules": {
     "accessor-pairs": "error",
@@ -94,7 +95,7 @@ module.exports = {
     "max-lines": "error",
     "max-nested-callbacks": "error",
     "max-params": "error",
-    "max-statements": "error",
+    "max-statements": "off",
     "max-statements-per-line": "error",
     "multiline-ternary": "error",
     "new-cap": "error",

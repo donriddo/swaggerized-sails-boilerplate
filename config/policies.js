@@ -1,5 +1,5 @@
 /**
- * Policy Mappings
+ * policy mappings
  * (sails.config.policies)
  *
  * Policies are simple functions which run **before** your controllers.
@@ -13,39 +13,45 @@
  * http://sailsjs.org/#/documentation/concepts/Policies
  *
  * For more information on configuring policies, check out:
- * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.policies.html
+ *
+ * http://sailsjs.org/#/documentation/reference/
+ * sails.config/sails.config.policies.html
  */
 
 
 module.exports.policies = {
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
-  * Default policy for all controllers and actions (`true` allows public     *
+  * default policy for all controllers and actions (`true` allows public     *
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': 'authenticated',
 
-  /***************************************************************************
+  'AuthCOntroller': true
+
+  /** *************************************************************************
   *                                                                          *
-  * Here's an example of mapping some policies to run before a controller    *
+  * here's an example of mapping some policies to run before a controller    *
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
-	// RabbitController: {
+  // rabbitController: {
 
-		// Apply the `false` policy as the default for all of RabbitController's actions
-		// (`false` prevents all access, which ensures that nothing bad happens to our rabbits)
-		// '*': false,
+  // apply the `false` policy as the default for all of
+  // rabbitController's actions
+  // (`false` prevents all access, which ensures
+  // that nothing bad happens to our rabbits)
+  // '*': false,
 
-		// For the action `nurture`, apply the 'isRabbitMother' policy
-		// (this overrides `false` above)
-		// nurture	: 'isRabbitMother',
+  // for the action `nurture`, apply the 'isRabbitMother' policy
+  // (this overrides `false` above)
+  // nurture: 'isRabbitMother',
 
-		// Apply the `isNiceToAnimals` AND `hasRabbitFood` policies
-		// before letting any users feed our rabbits
-		// feed : ['isNiceToAnimals', 'hasRabbitFood']
-	// }
+  // apply the `isNiceToAnimals` AND `hasRabbitFood` policies
+  // before letting any users feed our rabbits
+  // feed : ['isNiceToAnimals', 'hasRabbitFood']
+  // }
 };

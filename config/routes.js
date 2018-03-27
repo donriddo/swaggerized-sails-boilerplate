@@ -49,6 +49,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   /**
+   * json-patch routes
+   */
+  'POST /jsonpatch': {
+    action: 'patch',
+    controller: 'JSONPatchController'
+  },
+
+  /**
    * auth routes
    */
   'POST /login': {
