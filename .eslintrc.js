@@ -9,11 +9,14 @@ module.exports = {
     "sourceType": "module"
   },
   "globals": {
+    "_": true,
     "after": true,
     "before": true,
     "global": true,
     "module": true,
-    "require": true
+    "require": true,
+    "sails": true,
+    "process": true
   },
   "rules": {
     "accessor-pairs": "error",
@@ -153,7 +156,7 @@ module.exports = {
     "no-param-reassign": "error",
     "no-path-concat": "error",
     "no-plusplus": "error",
-    "no-process-env": "error",
+    "no-process-env": "off",
     "no-process-exit": "error",
     "no-proto": "error",
     "no-prototype-builtins": "error",
@@ -173,7 +176,7 @@ module.exports = {
     "no-sync": "error",
     "no-tabs": "error",
     "no-template-curly-in-string": "error",
-    "no-ternary": "error",
+    "no-ternary": "off",
     "no-throw-literal": "error",
     "no-trailing-spaces": "error",
     "no-undef-init": "error",

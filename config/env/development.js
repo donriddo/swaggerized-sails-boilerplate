@@ -39,7 +39,14 @@ module.exports = {
     schema: true
   },
 
-  port: 10010
+  port: 10010,
+
+  settings: {
+    jwt: {
+      expiry: 108000000,
+      secret: process.env.JWT_SECRET || 'Sw4Gger1z3d_S41ls'
+    }
+  }
 
 
 };
