@@ -7,6 +7,7 @@ before(function (done) {
     if (err) return done(err);
     sails = s;
     global.server = sails.hooks.http.app;
+    global.token = '';
     // here you can load fixtures, etc.
     done(err, sails);
   });

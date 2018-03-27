@@ -1,45 +1,60 @@
 var should = require('should');
 var request = require('supertest');
 
-describe('controllers', function() {
+describe('hello_world controller', function () {
 
-  describe('hello_world', function() {
+  describe('GET /invalid', function () {
 
-    describe('GET /hello', function() {
+    it('should return a default string', function (done) {
 
-      it('should return a default string', function(done) {
+      request(server)
+        .get('/invalid')
+        .set('Accept', 'application/json')
+        .expect(404)
+        .end(function (err, res) {
+          should.not.exist(err);
 
-        request(server)
-          .get('/hello')
-          .set('Accept', 'application/json')
-          .expect('Content-Type', /json/)
-          .expect(200)
-          .end(function(err, res) {
-            should.not.exist(err);
+          res.should.have.property('body');
 
-            res.body.should.eql('Hello, stranger!');
+          done();
+        });
+    });
 
-            done();
-          });
-      });
+  });
 
-      it('should accept a name parameter', function(done) {
+  describe('GET /hello', function () {
 
-        request(server)
-          .get('/hello')
-          .query({ name: 'Scott'})
-          .set('Accept', 'application/json')
-          .expect('Content-Type', /json/)
-          .expect(200)
-          .end(function(err, res) {
-            should.not.exist(err);
+    it('should return a default string', function (done) {
 
-            res.body.should.eql('Hello, Scott!');
+      request(server)
+        .get('/hello')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end(function (err, res) {
+          should.not.exist(err);
 
-            done();
-          });
-      });
+          res.body.should.eql('Hello, stranger!');
 
+          done();
+        });
+    });
+
+    it('should accept a name parameter', function (done) {
+
+      request(server)
+        .get('/hello')
+        .query({ name: 'Scott' })
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .end(function (err, res) {
+          should.not.exist(err);
+
+          res.body.should.eql('Hello, Scott!');
+
+          done();
+        });
     });
 
   });
