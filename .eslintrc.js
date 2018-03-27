@@ -9,7 +9,11 @@ module.exports = {
     "sourceType": "module"
   },
   "globals": {
-    "module": true
+    "after": true,
+    "before": true,
+    "global": true,
+    "module": true,
+    "require": true
   },
   "rules": {
     "accessor-pairs": "error",
