@@ -9,6 +9,9 @@
 e.g on MacOS
 `brew install graphicsmagick`
 
+3. You need to have `grunt-cli` installed
+`npm install -g grunt-cli`
+
 # To start server
 `npm start`
 OR
