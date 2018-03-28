@@ -2,8 +2,12 @@
 
 # Prerequisite
 
-- You need to install swagger:
+1. You need to install swagger:
 `npm install -g swagger`
+
+2. You need to have `graphicsmagick` installed for image processing
+e.g on MacOS
+`brew install graphicsmagick`
 
 # To start server
 `npm start`
