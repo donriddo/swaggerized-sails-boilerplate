@@ -43,6 +43,7 @@
     "start": "node app.js",
     "debug": "node debug app.js",
     "test": "npm run eslint && npm run mocha",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/ --recursive",
+    "eslint": "eslint app"
   }
 }
