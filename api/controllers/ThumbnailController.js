@@ -27,6 +27,8 @@ module.exports = {
 
               return res.status(400).json({
                 err,
+                fileName,
+                image,
                 message: 'Error creating thumbnail'
               });
             }

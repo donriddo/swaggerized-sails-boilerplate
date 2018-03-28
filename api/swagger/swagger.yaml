@@ -87,6 +87,7 @@ paths:
       summary: Patches a given data given a set of operations.
       operationId: patch
       parameters:
+        - $ref: '#/parameters/Header'
         - in: body
           required: true
           name: data
@@ -124,6 +125,7 @@ paths:
       summary: Patches a given data given a set of operations.
       operationId: generateThumbnail
       parameters:
+        - $ref: '#/parameters/Header'
         - in: body
           required: true
           name: data
@@ -134,8 +136,8 @@ paths:
               - imageURL
             properties:
               imageURL:
-                type: object
-                description: Required data to be patched
+                type: string
+                description: Public URL of the image
       responses:
         "200":
           description: Thumbnailing successful
@@ -153,6 +155,15 @@ paths:
   
   /swagger:
     x-swagger-pipe: swagger_raw
+
+# common parameters
+parameters:
+  Header:
+    in: header
+    name: Authorization
+    type: string
+    required: true
+    description: Authorization Header to authenticate/authorize request
 # complex objects have schema definitions
 definitions:
   HelloWorldResponse:

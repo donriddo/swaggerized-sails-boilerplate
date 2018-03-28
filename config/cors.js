@@ -1,5 +1,5 @@
 /**
- * Cross-Origin Resource Sharing (CORS) Settings
+ * cross-Origin Resource Sharing (CORS) Settings
  * (sails.config.cors)
  *
  * CORS is like a more modern version of JSONP-- it allows your server/API
@@ -10,7 +10,8 @@
  * For more information on CORS, check out:
  * http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
  *
- * Note that any of these settings (besides 'allRoutes') can be changed on a per-route basis
+ * Note that any of these settings (besides 'allRoutes')
+ * can be changed on a per-route basis
  * by adding a "cors" object to the route configuration:
  *
  * '/get foo': {
@@ -22,57 +23,59 @@
  *  }
  *
  *  For more information on this configuration file, see:
- *  http://sailsjs.org/#/documentation/reference/sails.config/sails.config.cors.html
+ *  http://sailsjs.org/#/documentation/reference/
+ * sails.config/sails.config.cors.html
  *
  */
 
 module.exports.cors = {
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
-  * Allow CORS on all routes by default? If not, you must enable CORS on a   *
+  * allow CORS on all routes by default? If not, you must enable CORS on a   *
   * per-route basis by either adding a "cors" configuration object to the    *
   * route config, or setting "cors:true" in the route config to use the      *
   * default settings below.                                                  *
   *                                                                          *
   ***************************************************************************/
 
-  // allRoutes: false,
+  allRoutes: true,
 
-  /***************************************************************************
+  /** *************************************************************************
   *                                                                          *
-  * Which domains which are allowed CORS access? This can be a               *
+  * allow cookies to be shared for CORS requests?                            *
+  *                                                                          *
+  ***************************************************************************/
+
+  credentials: true,
+
+  /** *************************************************************************
+  *                                                                          *
+  * which headers should be allowed for CORS requests? This is only used in  *
+  * response to preflight requests.                                          *
+  *                                                                          *
+  ***************************************************************************/
+
+  headers: 'Authorization, content-type',
+
+  /** *************************************************************************
+ *                                                                          *
+ * which methods should be allowed for CORS requests? This is only used in  *
+ * response to preflight requests (see article linked above for more info)  *
+ *                                                                          *
+ ***************************************************************************/
+
+  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+
+
+  /** *************************************************************************
+  *                                                                          *
+  * which domains which are allowed CORS access? This can be a               *
   * comma-delimited list of hosts (beginning with http:// or https://) or    *
   * "*" to allow all domains CORS access.                                    *
   *                                                                          *
   ***************************************************************************/
 
-  // origin: '*',
-
-  /***************************************************************************
-  *                                                                          *
-  * Allow cookies to be shared for CORS requests?                            *
-  *                                                                          *
-  ***************************************************************************/
-
-  // credentials: true,
-
-  /***************************************************************************
-  *                                                                          *
-  * Which methods should be allowed for CORS requests? This is only used in  *
-  * response to preflight requests (see article linked above for more info)  *
-  *                                                                          *
-  ***************************************************************************/
-
-  // methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
-
-  /***************************************************************************
-  *                                                                          *
-  * Which headers should be allowed for CORS requests? This is only used in  *
-  * response to preflight requests.                                          *
-  *                                                                          *
-  ***************************************************************************/
-
-  // headers: 'content-type'
+  origin: '*'
 
 };
