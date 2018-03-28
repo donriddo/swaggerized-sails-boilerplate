@@ -5,6 +5,22 @@ describe('auth controller', function () {
 
   describe('POST /login', function () {
 
+    it('should return Not a proper HTTP verb', function (done) {
+
+      request(server)
+        .get('/login')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(405)
+        .end(function (err, res) {
+          should.not.exist(err);
+          res.body.should.have.property('message');
+          res.body.should.have.property('allowedMethods');
+
+          done();
+        });
+    });
+
     it('should return missing credentials', function (done) {
 
       request(server)

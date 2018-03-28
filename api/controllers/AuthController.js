@@ -8,8 +8,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
 
   login(req, res) {
-    if (req.method === 'POST') {
-      passport.authenticate('local', function (err, user, info) {
+    passport.authenticate('local', function (err, user, info) {
         if (!user) {
           return res.status(400).json({
             info,
@@ -48,8 +47,5 @@ module.exports = {
         });
 
       })(req, res);
-    } else {
-      return res.status(400).json('Not a proper http verb');
-    }
   }
 };

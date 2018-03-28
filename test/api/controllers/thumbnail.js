@@ -69,6 +69,42 @@ describe('thumbnail controller', function () {
           });
       });
 
+
+    it('should return imageURL must be set',
+      function (done) {
+
+        request(server)
+          .post('/thumbnail')
+          .set('Accept', 'application/json')
+          .set('Authorization', `Bearer ${token}`)
+          .send({})
+          .expect(400)
+          .end(function (err, res) {
+            should.not.exist(err);
+            res.body.should.have.property('message');
+            res.body.message.should.eql('`imageURL` must be set');
+            done();
+          });
+      });
+
+    it('should return error downloading image',
+      function (done) {
+
+        request(server)
+          .post('/thumbnail')
+          .set('Accept', 'application/json')
+          .set('Authorization', `Bearer ${token}`)
+          .send({ imageURL: 'invalid' })
+          .expect(400)
+          .end(function (err, res) {
+            should.not.exist(err);
+            res.body.should.have.property('message');
+            res.body.should.have.property('err');
+            res.body.message.should.eql('Error downloading image');
+            done();
+          });
+      });
+
     it('should return Thumbnail creation successful',
       function (done) {
 
